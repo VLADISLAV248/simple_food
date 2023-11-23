@@ -11,46 +11,41 @@
 <body>
   <header class="header">
     <div class="container">
+      <div class="header__inner">
+        <nav class="header__menu">
 
-      <nav class="nav">
+          <a href="#home" class="logo">
+            <img src="images/logo.svg" alt="Логотип симпл фуд" class="logo__img">
+          </a>
 
-        <a href="#home" class="logo">
-        <img src="images/logo.svg" alt="Логотип симпл фуд" class="logo__img">
-        </a>
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#home" class="header__link">
+                Главная
+              </a>
+            </li>
+            <li class="header__item">
+              <a href="#dishes" class="header__link">
+                Блюда
+              </a>
+            </li>
+            <li class="header__item">
+              <a href="#contacts" class="header__link">
+                Контакты
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#home" class="nav__link">
-              Главная
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#dishes" class="nav__link">
-              Блюда
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#contacts" class="nav__link">
-              Контакты
-            </a>
-          </li>
+        <button class="header__search">
+          <img src="images/icons/search_btn.svg" alt="поиск товара" class="header__icon">
+        </button>
 
-          <li class="nav__search">
-            <a href="#" class="nav__icon-link">
-              <img src="images/icons/search_btn.svg" alt="поиск товара" class="nav__img">
-            </a>
-          </li>
-
-          <li class="nav__cart">
-            <a href="#" class="nav__icon-link">
-              <img src="images/icons/cart_icon.svg" alt="Корзина" class="nav__img">
-              <span class="nav__num">4</span>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
-
+        <button class="header__cart">
+          <img src="images/icons/cart_icon.svg" alt="Корзина" class="header__icon">
+          <span class="header__num">4</span>
+        </button>
+      </div>
     </div>
   </header>
 
