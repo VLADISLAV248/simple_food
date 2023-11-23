@@ -70,10 +70,11 @@ function cleanDist() {
 }
 
 function watching() {
-  watch(['app/scss/**/*.css'], styles);
+  watch('app/scss/**/*.scss', styles);
   watch(['app/js/**/*.js', '!app/js/main.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
+
 
 exports.styles = styles;
 exports.scripts = scripts;

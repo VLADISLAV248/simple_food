@@ -3,3 +3,95 @@
 @import 'vars';
 @import 'global';
 @import 'media';
+
+.header {
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+
+    .logo {
+
+      &__img {
+        
+      }
+    }
+
+    &__list {
+      display: flex;
+      align-items: center;
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 45px;
+    }
+
+    &__item:last-child {
+      margin-right: 63px;
+    }
+
+    &__link {
+      font-size: 18px;
+    }
+
+    &__search {
+      margin-right: 35px;
+    }
+
+    &__cart {
+      position: relative;
+    }
+     
+    &__num {
+      position: absolute;
+      right: -8px;
+      top: -4px;
+      width: 14px;
+      height: 14px;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      font-size: 10px;
+      line-height: 14px;
+      text-align: center;
+      color: #fff;
+      background-color: $orange-900;
+    }
+  }
+}
+
+.delivery {
+  display: flex;
+
+  &__item {}
+
+  &__title {
+    @extend %rubik-500;
+    font-size: 66px;
+    line-height: 1.3;
+    color: $darkBlue-900;
+
+    &--orange {
+      color: $orange-900;
+    }
+  }
+
+  & p {}
+
+  .button {
+    color: #fff;
+    padding: 12px 32px;
+    font-size: 18px;
+    background-color: $orange-900;
+    border-radius: 6px;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &__img {
+    text-decoration: underline;
+  }
+
+}
