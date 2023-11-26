@@ -12,8 +12,8 @@ function browsersync() {
   browserSync.init({
     server: {
       baseDir: 'app/'
-      // notify: false
-    }
+    },
+    notify: false
   })
 }
 
@@ -30,10 +30,11 @@ function styles() {
 }
 
 function scripts() {
-  return src(
-    // 'node_modules/jquery/dist/jquery.js',
+  return src([
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/mixitup/dist/mixitup.js',
     'app/js/main.js'
-  )
+  ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
@@ -61,17 +62,17 @@ function build() {
     'app/**/*.html',
     'app/css/style.min.css',
     'app/js/main.min.js'
-  ], {base: 'app'})
+  ], { base: 'app' })
     .pipe(dest('dist'))
 }
 
 function cleanDist() {
-  return del('dist') 
+  return del('dist')
 }
 
 function watching() {
   watch('app/scss/**/*.scss', styles);
-  watch(['app/js/**/*.js', '!app/js/main.js'], scripts);
+  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 

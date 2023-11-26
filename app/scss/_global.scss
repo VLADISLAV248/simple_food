@@ -4,10 +4,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: $silver-100;
-}
-
-body {  
   font-size: 20px;
+  font-style: normal;
   line-height: 1.5;
   color: $dark;
   background-color: $silver-100;
@@ -22,4 +20,88 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.logo {
+
+  &__img {
+    padding: 8px 1px 2px;
+  }
+
+  transition: box-shadow 0.5s,
+  opacity 0.5s;
+  border-radius: 5px;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $orange-900;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+}
+
+.button {
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 18px;
+  background-color: $orange-900;
+  border-radius: 6px;
+
+  &:focus {
+    color: $orange-900;
+    box-shadow: 0 0 0 2px $orange-900;
+    background-color: rgba($color: $orbg, $alpha: 0.1);
+  }
+
+  &:hover {
+    color: $orange-900;
+    box-shadow: 0 0 0 2px $orange-900;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    color: $orange-900;
+    background-color: rgba($color: $orbg, $alpha: 0.1)
+  }
+
+}
+
+.link {
+  text-decoration-line: underline;
+  // display: inline-block;
+  // line-height: 2px;
+  // border-bottom: 1px solid $dark;    
+  padding: 7px 1px;
+  transition: box-shadow 0.5s, text-decoration-color 0.5s, border-radius 0.5s, color 0.5s;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $orange-900;
+    // border-bottom-color: transparent;
+    text-decoration-color: transparent;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    color: $orange-900;
+    text-decoration-color: transparent;
+    // border-bottom-color: transparent;
+  }
+
+  &:active {
+    text-shadow: 2px 2px 5px rgba($dark, 0.50);
+    // border-bottom-color: transparent;
+    text-decoration-color: transparent;
+  }
+}
+
+.title {
+  @extend %rubik-500;
+  font-size: 36px;
+  line-height: 1.3;
 }

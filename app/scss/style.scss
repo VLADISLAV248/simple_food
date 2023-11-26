@@ -4,15 +4,13 @@
 @import 'global';
 @import 'media';
 
-.logo {
-  &__img {}
-}
-
 .header {
 
   &__inner {
+    max-width: calc(100% - 30px);
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__menu {
@@ -20,10 +18,8 @@
     justify-content: space-between;
     max-width: 100%;
     width: 100%;
-    padding: 60px 0;
+    padding: 57px 0 57px 5px;
   }
-
-
 
   &__list {
     display: flex;
@@ -35,28 +31,83 @@
   }
 
   &__item:last-child {
-    margin-right: 63px;
+    margin-right: 51px;
   }
 
   &__link {
     font-size: 18px;
+    // padding: 11px 0;
+    border-radius: 5px;
+    transition: box-shadow 0.5s, color 0.5s;
+
+    &--active {
+      color: $orange-900;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+    }
+
+    &:hover {
+      color: $orange-900;
+    }
+
+    &:active {
+      text-shadow: 2px 2px 5px rgba($dark, 0.50);
+    }
   }
 
   &__search {
-    margin-right: 35px;
+    margin-right: 9px;
   }
 
   &__cart {
     position: relative;
+    margin-right: 3px;
+  }
+
+  &__search,
+  &__cart {
+    height: 44px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    transition: box-shadow 0.5s, background-color 0.5s, fill 0.5s, stroke 0.5s, color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+      background-color: rgba($color: $orbg, $alpha: 0.1);
+
+    }
+
+    &:hover {
+      background-color: $orange-900;
+
+      path {
+        stroke: #fff;
+      }
+
+      ellipse {
+        stroke: #fff;
+      }
+    }
+
+    &:hover .header__num {
+      color: $orange-900;
+      background-color: #fff;
+    }
+
+    &:active {
+      background-color: #FFF2ED;
+    }
+
   }
 
   &__num {
     position: absolute;
-    right: -8px;
-    top: -4px;
+    right: 2px;
+    top: 6px;
     width: 14px;
     height: 14px;
-    border: 1px solid transparent;
     border-radius: 50%;
     font-size: 10px;
     line-height: 14px;
@@ -68,37 +119,202 @@
 
 
 .delivery {
-  display: flex;
 
-  &__item {}
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 30px);
+  }
+
+
+  &__item {
+    max-width: 450px;
+    width: 100%;
+    margin-right: 20px;
+  }
 
   &__title {
     @extend %rubik-500;
     font-size: 66px;
     line-height: 1.3;
     color: $darkBlue-900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    ;
 
     &--orange {
       color: $orange-900;
     }
   }
 
-  & p {}
+  &__text {
+    margin-bottom: 20px;
+  }
 
-  .button {
-    color: #fff;
-    padding: 12px 32px;
-    font-size: 18px;
-    background-color: $orange-900;
-    border-radius: 6px;
+  &__btn {
+    margin-right: 34px;
+  }
+
+  &__img {}
+
+}
+
+.products {
+  text-align: center;
+  margin-bottom: 120px;
+
+  &__title {
+    padding-top: 120px;
+    margin-bottom: 60px;
+  }
+
+  &__menu {
+    display: flex;
+    margin-bottom: 45px;
+  }
+
+  &__item-btn {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px $silver-200;
+    transition: box-shadow 0.5s, background-color 0.5s, inset 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px transparent;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 2px $orange-900;
+      background-color: rgba($color: $orbg, $alpha: 0.1);
+    }
+
+    &:hover .products__btn-filter {
+      color: $orange-900;
+
+      path {
+        fill: $orange-900;
+      }
+    }
+
+    &:active {
+      box-shadow: 0px -5px 12px 0px rgba($color: $orange-900, $alpha: 0.2) inset;
+    }
+
+  }
+
+  &__item-btn:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__btn-filter {
+    display: flex;
+    align-items: center;
+    padding: 13px 32px;
+    color: $darkBlue-900;
+    transition: color 0.5s;
+
+    path {
+      fill: $darkBlue-900;
+      transition: fill 0.5s;
+    }
+
+    & svg {
+      margin-right: 10px;
+    }
+
+    &.mixitup-control-active {
+      background-color: $orange-900;
+      color: #fff;
+
+      path {
+        fill: #fff;
+      }
+
+      border-radius: 5px;
+    }
+
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    max-width: 207.23px;
+    width: 100%;
+    height: 296.23px;
+    border: 1px solid $silver-200;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.5s;
+
+    &:hover {
+      border-color: $orange-900;
+    }
   }
 
   &__link {
-    text-decoration: underline;
+    margin-bottom: -10px;
   }
 
   &__img {
-    text-decoration: underline;
+    padding-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 67px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  &__price {
+    @extend %rubik-500;
+    font-size: 15px;
+    color: $darkBlue-900;
+  }
+
+  &__btn {
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 7px 16px;
+    margin-bottom: 20px;
+    background-color: $orange-900;
+    color: #fff;
+    border-radius: 6px;
+    transition: box-shadow 0.5s, background-color 0.5s, color 0.5s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+      background-color: rgba($color: $orbg, $alpha: 0.1);
+      color: $orange-900;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 2px $orange-900;
+      background-color: #fff;
+      color: $orange-900;
+
+    }
+
+    &:active {
+      background-color: rgba($color: $orbg, $alpha: 0.1);
+      color: $orange-900;
+    }
   }
 
 }
