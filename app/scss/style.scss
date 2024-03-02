@@ -47,7 +47,10 @@
     margin-right: 34px;
   }
 
-  &__img {}
+  &__img {
+    width: 560px;
+    height: 660px;
+  }
 
 }
 
@@ -154,6 +157,7 @@
     &--catalog {
       gap: 8px;
       margin-bottom: 0;
+      justify-content: end;
     }
   }
 
@@ -765,6 +769,7 @@
 
 .catalog {
   padding: 60px 0;
+
   &-filter {
     display: flex;
     justify-content: space-between;
@@ -778,6 +783,103 @@
 
   &__title {
     margin-bottom: 60px;
+  }
+
+  &-content {
+
+    &__filter {
+      background-color: #fff;
+    }
+
+    &__filter:not(:last-child) {
+      margin-right: 15px;
+    }
+
+  }
+
+  .jq-selectbox__select {
+    display: flex;
+    align-items: center;
+    background: none;
+    height: 47px;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 3%;
+    color: $dark;
+    @extend %rubik-400;
+    text-shadow: none;
+    transition: color 0.5s, border-color 0.5s;
+
+
+    &:hover {
+      border-color: $orange-900;
+      color: $orange-900;
+
+      .jq-selectbox__trigger-arrow {
+        background-image: url('../images/icons/icon-chevron-down-orange.svg');
+      }
+    }
+
+  }
+
+  .jq-selectbox__dropdown {
+    li {
+      padding: 15px 40px 15px 15px;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 3%;
+      color: $dark;
+      @extend %rubik-400;
+      transition: background-color 0.5s, color 0.5s;
+
+      &:hover {
+        background-color: $orange-900;
+        color: #fff;
+      }
+    }
+
+    li.sel.selected {
+      background-color: rgba($color: $gray, $alpha: 1);
+      color: #fff;
+
+      &:hover {
+        background-color: $orange-900;
+        color: #fff;
+      }
+    }
+
+  }
+
+  .focused .jq-selectbox__select {
+    border-color: $orange-900;
+  }
+
+  .jq-selectbox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34px;
+    height: 100%;
+    border-left: none;
+    background-color: #fff;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 19px;
+    right: 15px;
+    width: 11px;
+    height: 6px;
+    border: none;
+    background-image: url('../images/icons/icon-chevron-down.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.5s;
   }
 
   .filter {
@@ -797,6 +899,61 @@
       line-height: 1.2;
       letter-spacing: 3%;
       border-bottom: 1px solid $silver-200;
+    }
+
+    &__input {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: rect(0 0 0 0);
+      position: absolute;
+
+      &:checked+.filters__text {
+        color: $orange-900;
+      }
+
+      &:focus+.filters__text {
+        box-shadow: 0 0 0 2px #FFA285;
+        border-radius: 3px;
+      }
+
+      &:checked+.filters-offer__checkbox {
+        background-size: 12px 9px;
+        background-image: url('../images/icons/icon-check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0 0 0 2px $darkBlue-900;
+      }
+
+      &:focus+.filters-offer__checkbox {
+        box-shadow: 0 0 0 2px $orange-900;
+      }
+
+      &:hover+.filters-offer__checkbox {
+        box-shadow: 0 0 0 2px $orange-900;
+        color: $orange-900;
+      }
+    }
+
+    &__text {
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1.3;
+      letter-spacing: 3%;
+      transition: color 0.5s, box-shadow 0.5s;
+      cursor: pointer;
+
+
+
+      &:hover {
+        color: $orange-900;
+      }
+
+      &:active {
+        color: $dark;
+        box-shadow: none;
+        text-shadow: 2px 2px 5px rgba($darkBlue-900, $alpha: 0.5);
+      }
     }
 
     &-categories {
@@ -823,10 +980,96 @@
         flex-direction: column;
         padding: 25px 15px;
       }
+
+      &__label {
+        display: flex;
+        height: 24px;
+        padding: 1px 0;
+      }
+
+      &__label:not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      &__checkbox {
+        display: inline-block;
+        margin-right: 12px;
+        width: 22px;
+        height: 22px;
+        background-color: #FAEDED;
+        box-shadow: 0 0 0 1px $silver-200;
+        border-radius: 3px;
+        transition: background 0.5s, box-shadow 0.5s, color 0.5s;
+      }
+
+    }
+
+    &-price {
+      &__form {
+        padding: 25px 0px;
+      }
+
+      &__label {
+        font-size: 16px;
+        color: $gray;
+      }
+
+      &__label:not(:last-child) {
+        margin-right: 20px;
+      }
     }
 
   }
 
+  .js-input-from,
+  .js-input-to {
+    width: 70px;
+    height: 40px;
+    border: 1px solid $silver-200;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #FAEDED;
+    color: $dark;
+    transition: border-color 0.5s;
+
+    &:focus {
+      border-color: $orange-900;
+    }
+  }
+
+  .extra-controls {
+    margin-bottom: 24px;
+  }
+
+  .irs-min,
+  .irs-max,
+  .irs-from,
+  .irs-to {
+    display: none;
+  }
+
+  .irs-line {
+    background-color: $gray;
+    height: 2px;
+  }
+
+  .irs-bar {
+    background-color: $orange-900;
+    height: 2px;
+  }
+
+  .irs-handle.from,
+  .irs-handle.to {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background-color: $orange-900;
+    transform: translateY(2px);
+  }
+
+  .irs.irs--round.js-irs-0 {
+    margin-top: -28px;
+  }
 }
 
 .pagination {
@@ -842,13 +1085,66 @@
     background-color: #FAEDED;
     color: $darkBlue-900;
     border-radius: 3px;
+    border: 2px solid transparent;
+    transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+    cursor: pointer;
   }
 
   &__item:not(:last-child) {
     margin-right: 6px;
   }
 
-  &__item:nth-child(2) {
-    border: 1px solid $darkBlue-900;
+  &__link {
+    display: block;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAEDED;
+    color: $darkBlue-900;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+    cursor: pointer;
+
+    &--active {
+      border-color: $darkBlue-900;
+    }
+
+    &:focus {
+      border-color: $orange-900;
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: $orange-900;
+
+      path {
+        fill: #fff;
+      }
+
+      &.disabled {
+        cursor: auto;
+        background-color: #FAEDED;
+        color: $darkBlue-900;
+
+        path {
+          fill: $gray;
+        }
+      }
+    }
+
+    &:active {
+      background-color: #FAEDED;
+      color: $darkBlue-900;
+      border-color: transparent;
+      box-shadow: inset 0 -1px 4px 2px rgba($color: #000000, $alpha: 0.15);
+    }
+
+    &:active.disabled {
+      box-shadow: none;
+    }
   }
+
 }

@@ -92,15 +92,20 @@
           <h2 class="title catalog__title">
             Каталог продуктов
           </h2>
-          
+
           <form class="catalog-content__filter-form" action="#">
-            <select class="catalog-content__filter-sort select-name">
-              <option value="">По названию</option>
-              <option value="">По названию</option>
-              <option value="">По названию</option>
-              <option value="">По названию</option>
+            <select class="catalog-content__filter">
+              <option value="">
+                По названию
+              </option>              
+              <option value="">
+                По названию
+              </option>              
+              <option value="">
+                По названию
+              </option>              
             </select>
-            <select class="catalog-content__filter-show select-col">
+            <select class="catalog-content__filter">
               <option value="">По 12</option>
               <option value="">По 12</option>
               <option value="">По 12</option>
@@ -119,57 +124,57 @@
               <form action="#" class="filters-categories__form">
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Бургеры
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Пицца
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Сендвичи
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Азиатская кухня
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Сеты
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Европейская кухня
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Напитки
                   </span>
                 </label>
 
                 <label class="filters-categories__label">
-                  <input class="filters-categories__input" type="checkbox">
-                  <span class="filters-categories__checkbox">
+                  <input class="filters__input" type="checkbox">
+                  <span class="filters__text">
                     Алкоголь
                   </span>
                 </label>
@@ -185,25 +190,25 @@
               <form class="filters-offer__form" action="#">
 
                 <label class="filters-offer__label">
-                  <input class="filters-offer__input" type="checkbox">
+                  <input class="filters__input" type="checkbox">
                   <span class="filters-offer__checkbox"></span>
-                  <span class="filters-offer__text">
+                  <span class="filters__text">
                     Со скидкой
                   </span>
                 </label>
 
                 <label class="filters-offer__label">
-                  <input class="filters-offer__input" type="checkbox">
+                  <input class="filters__input" type="checkbox">
                   <span class="filters-offer__checkbox"></span>
-                  <span class="filters-offer__text">
+                  <span class="filters__text">
                     Новинка
                   </span>
                 </label>
 
                 <label class="filters-offer__label">
-                  <input class="filters-offer__input" type="checkbox">
+                  <input class="filters__input" type="checkbox">
                   <span class="filters-offer__checkbox"></span>
-                  <span class="filters-offer__text">
+                  <span class="filters__text">
                     Хит
                   </span>
                 </label>
@@ -217,8 +222,23 @@
                 Цена
               </h3>
 
+
               <form action="#" class="filters-price__form">
-                <input type="text" class="filter-price__input" data-min="100" data-max="1000" data-from="200" data-to="800">
+                <div class="extra-controls">
+                  <label class="filters-price__label">
+                    <span>от</span>
+                    <input type="text" class="js-input-from" value="0" />
+                    <span>₴</span>
+                  </label>
+                  <label class="filters-price__label">
+                    <span>до</span>
+                    <input type="text" class="js-input-to" value="0" />
+                    <span>₴</span>
+                  </label>
+                </div>
+                <div class="range-slider">
+                  <input type="text" class="js-range-slider" value="" />
+                </div>
               </form>
 
             </div>
@@ -412,24 +432,38 @@
 
         <ul class="pagination">
           <li class="pagination__item">
-            <svg width="11" height="19" viewBox="0 0 11 19" fill="#c2c2c2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M8.19676 18.079L0.450821 10.333C-0.150273 9.72883 -0.150273 8.75289 0.450821 8.14867L8.19676 0.402734C8.77613 -0.0945317 9.63285 -0.0945317 10.2122 0.402734C10.8614 0.958906 10.9372 1.93797 10.3811 2.58711L3.73512 9.23313L10.3811 15.8946C10.9822 16.4988 10.9822 17.4748 10.3811 18.079C9.77691 18.6801 8.8009 18.6801 8.19676 18.079Z"
-                fill="#c2c2c2" />
-            </svg>
+            <p href="#" class="pagination__link disabled">
+              <svg width="11" height="19" viewBox="0 0 11 19" fill="#c2c2c2" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.19676 18.079L0.450821 10.333C-0.150273 9.72883 -0.150273 8.75289 0.450821 8.14867L8.19676 0.402734C8.77613 -0.0945317 9.63285 -0.0945317 10.2122 0.402734C10.8614 0.958906 10.9372 1.93797 10.3811 2.58711L3.73512 9.23313L10.3811 15.8946C10.9822 16.4988 10.9822 17.4748 10.3811 18.079C9.77691 18.6801 8.8009 18.6801 8.19676 18.079Z"
+                  fill="#c2c2c2" />
+              </svg>
+            </p>
           </li>
-          <li class="pagination__item">1</li>
-          <li class="pagination__item">2 </li>
-          <li class="pagination__item">...</li>
-          <li class="pagination__item">9</li>
-          <li class="pagination__item">10</li>
           <li class="pagination__item">
-            <svg width="11" height="19" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.80324 18.079L10.5492 10.333C11.1503 9.72883 11.1503 8.75289 10.5492 8.14867L2.80324 0.402734C2.22387 -0.0945317 1.36715 -0.0945317 0.787776 0.402734C0.138636 0.958906 0.0627755 1.93797 0.618947 2.58711L7.26488 9.23313L0.618868 15.8946C0.0177739 16.4988 0.0177738 17.4748 0.618868 18.079C1.22309 18.6801 2.1991 18.6801 2.80324 18.079Z"
-                fill="#363853" />
-            </svg>
-          </li>          
+            <p href="#" class="pagination__link pagination__link--active disabled">1</p>
+          </li>
+          <li class="pagination__item">
+            <a href="#" class="pagination__link">2 </a>
+          </li>
+          <li class="pagination__item">
+            <a href="#" class="pagination__link">...</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#" class="pagination__link">9</a>
+          </li>
+          <li class="pagination__item">
+            <a href="#" class="pagination__link">10</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">
+              <svg width="11" height="19" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.80324 18.079L10.5492 10.333C11.1503 9.72883 11.1503 8.75289 10.5492 8.14867L2.80324 0.402734C2.22387 -0.0945317 1.36715 -0.0945317 0.787776 0.402734C0.138636 0.958906 0.0627755 1.93797 0.618947 2.58711L7.26488 9.23313L0.618868 15.8946C0.0177739 16.4988 0.0177738 17.4748 0.618868 18.079C1.22309 18.6801 2.1991 18.6801 2.80324 18.079Z"
+                  fill="#363853" />
+              </svg>
+            </a>
+          </li>
         </ul>
 
       </div>
